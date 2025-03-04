@@ -6,7 +6,7 @@
 /*   By: welepy </var/spool/mail/welepy>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 09:31:30 by welepy            #+#    #+#             */
-/*   Updated: 2025/03/04 13:27:14 by welepy           ###   ########.fr       */
+/*   Updated: 2025/03/04 18:21:22 by welepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,28 @@ int	ft_printf(char *string, ...)
 #include <stdio.h>
 int	main(void)
 {
-	printf(" = %d" ,printf("|% d.2|", 42));
+	ft_printf("|% d|\n", 42);
+	printf("|% d|\n", 42);
+	ft_printf("|% 0d|\n", 42);
+	printf("|% 0d|\n", 42);
+	ft_printf("|% 05d|\n", 42);
+	printf("|% 05d|\n", 42);
+	ft_printf("|% 00000d|\n", 42);
+	printf("|% 00000d|\n", 42);
+	ft_printf("|% 5d|\n", 42);
+	printf("|% 5d|\n", 42);
+	ft_printf("|% .5d|\n", 42);  // " 00042"
+	printf("|% .5d|\n", 42);  // " 00042"
+	ft_printf("|% .3d|\n", 3); // " 3.140"
+	printf("|% .3d|\n", 3); // " 3.140"
+	ft_printf("|% 05d|\n", 42);  // " 00042"
+	printf("|% 05d|\n", 42);  // " 00042"
+	ft_printf("|% 03d|\n", 3); // " 3.140"
+	printf("|% 03d|\n", 3); // " 3.140"
+	ft_printf("|% -5d|\n", 42);  // " 42  "
+	printf("|% -5d|\n", 42);  // " 42  "
+	ft_printf("|% -10d|\n", 3); // " 3.14      "
+	printf("|% -10d|\n", 3); // " 3.14      "
+
 	return 0;
 }

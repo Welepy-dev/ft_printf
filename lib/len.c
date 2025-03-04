@@ -6,7 +6,7 @@
 /*   By: marcsilv <marcsilv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:01:51 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/03/04 11:40:43 by welepy           ###   ########.fr       */
+/*   Updated: 2025/03/04 15:12:42 by welepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_ptr_len(uintptr_t num)
 	return (len);
 }
 
-size_t	num_len(int n)
+size_t	num_len(long n)
 {
 	size_t	len;
 

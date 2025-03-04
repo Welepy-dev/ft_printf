@@ -6,7 +6,7 @@
 /*   By: welepy </var/spool/mail/welepy>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 07:58:59 by welepy            #+#    #+#             */
-/*   Updated: 2025/03/04 13:11:05 by welepy           ###   ########.fr       */
+/*   Updated: 2025/03/04 15:12:58 by welepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_printf
 {
 	long  number;
 	int	length;
+	int	allign;
 } t_printf;
 
 
@@ -37,7 +38,7 @@ int	ft_putstr(char *string);
 
 int	ft_num_len(unsigned int num);
 int	ft_ptr_len(uintptr_t num);
-size_t	num_len(int n);
+size_t	num_len(long n);
 int	ft_print_ptr(unsigned long long ptr);
 
 int	ft_putstr(char *string);
@@ -53,4 +54,6 @@ int	lower(unsigned int decimalnumber);
 int	upper(unsigned int decimalnumber);
 
 void	space(char **string, va_list args, t_printf *printf);
+bool  is_digit(char c);
+int	allign(char **string);
 #endif
