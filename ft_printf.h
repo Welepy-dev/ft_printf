@@ -6,7 +6,7 @@
 /*   By: welepy </var/spool/mail/welepy>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 07:58:59 by welepy            #+#    #+#             */
-/*   Updated: 2025/03/04 12:14:24 by welepy           ###   ########.fr       */
+/*   Updated: 2025/03/04 13:11:05 by welepy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,6 @@ int	ft_print_unsigned(unsigned int n);
 int	lower(unsigned int decimalnumber);
 
 int	upper(unsigned int decimalnumber);
+
+void	space(char **string, va_list args, t_printf *printf);
 #endif
