@@ -1,38 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   len.c                                              :+:      :+:    :+:   */
+/*   counters.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marcsilv <marcsilv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 16:01:51 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/03/04 11:40:43 by welepy           ###   ########.fr       */
+/*   Created: 2025/04/30 11:41:51 by marcsilv          #+#    #+#             */
+/*   Updated: 2025/05/06 13:05:44 by marcsilv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../../inc/ft_printf.h"
 
-int	ft_strlen(char *string)
+int	ft_strlen(const char *s)
 {
 	int	i;
 
 	i = 0;
-	if (!string)
-		return 0;
-	while (string[i])
+	if (!s)
+		return (i);
+	while (s[i])
 		i++;
 	return (i);
 }
 
-int	ft_num_len(unsigned int num)
+int	ft_num_len(long long num)
 {
-	int	len;
+	int					len;
+	unsigned long long	n;
 
+	if (num == 0)
+		return (1);
 	len = 0;
-	while (num != 0)
+	if (num < 0)
 	{
 		len++;
-		num = num / 10;
+		n = -num;
+	}
+	else
+		n = num;
+	while (n != 0)
+	{
+		len++;
+		n /= 10;
 	}
 	return (len);
 }
@@ -45,27 +55,7 @@ int	ft_ptr_len(uintptr_t num)
 	while (num != 0)
 	{
 		len++;
-		num = num / 16;
-	}
-	return (len);
-}
-
-size_t	num_len(int n)
-{
-	size_t	len;
-
-	len = 0;
-	if (n == INT_MIN)
-		return (11);
-	if (n <= 0)
-	{
-		len++;
-		n *= -1;
-	}
-	while (n > 0)
-	{
-		n /= 10;
-		len++;
+		num /= 16;
 	}
 	return (len);
 }

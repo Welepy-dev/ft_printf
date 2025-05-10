@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_ptr.c                                        :+:      :+:    :+:   */
+/*   prints2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: welepy </var/spool/mail/welepy>            +#+  +:+       +#+        */
+/*   By: marcsilv <marcsilv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/04 11:34:14 by welepy            #+#    #+#             */
-/*   Updated: 2025/03/04 11:58:35 by welepy           ###   ########.fr       */
+/*   Created: 2025/05/01 15:16:20 by marcsilv          #+#    #+#             */
+/*   Updated: 2025/05/01 15:17:42 by marcsilv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../../inc/ft_printf.h"
 
-static void	ft_put_ptr(uintptr_t num)
+void	ft_put_ptr(uintptr_t num)
 {
 	if (num >= 16)
 	{
@@ -28,19 +28,8 @@ static void	ft_put_ptr(uintptr_t num)
 	}
 }
 
-int	ft_print_ptr(unsigned long long ptr)
+int	ft_putchar(char c)
 {
-	int	print_length;
-
-	print_length = 0;
-	if (ptr == 0)
-		print_length += write(1, "(nil)", 5);
-	else
-	{
-		print_length += write(1, "0x", 2);
-		ft_put_ptr(ptr);
-		print_length += ft_ptr_len(ptr);
-	}
-	return (print_length);
+	write(1, &c, 1);
+	return (1);
 }
-
