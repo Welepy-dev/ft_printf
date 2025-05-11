@@ -6,7 +6,7 @@
 /*   By: marcsilv <marcsilv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 19:09:43 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/05/06 14:10:12 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/05/11 17:05:09 by marcsilv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void	print_hex(t_prt *prt, t_fmt *fmt, unsigned int n, char c)
 	if (!fmt->left_justify && (!fmt->zero_padd || fmt->precision_specified))
 		prt->len += ft_putnchar(' ', utils.padding);
 	if (ternary((fmt->hash_flag && n != 0), 2, 0) == 2 && c == 'x')
-		ft_putstr("0x");
+		prt->len += ft_putstr("0x");
 	else if (ternary((fmt->hash_flag && n != 0), 2, 0) == 2 && c == 'X')
-		ft_putstr("0X");
+		prt->len += ft_putstr("0X");
 	if (!fmt->left_justify && fmt->zero_padd && !fmt->precision_specified)
 		prt->len += ft_putnchar('0', utils.padding);
 	prt->len += ft_putnchar('0', utils.zeros);

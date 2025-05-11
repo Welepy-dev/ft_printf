@@ -6,7 +6,7 @@
 /*   By: marcsilv <marcsilv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 19:08:13 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/05/03 19:08:27 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/05/11 16:47:56 by marcsilv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print_str(t_prt *prt, t_fmt *fmt)
 	str = va_arg(prt->arg, char *);
 	if (!str)
 		str = "(null)";
-	if (fmt->width > 1)
+	if (fmt->width >= 1)
 		padding = fmt->width - ft_strlen(str);
 	else
 		padding = 0;
