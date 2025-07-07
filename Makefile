@@ -10,31 +10,32 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	libftprintf.a
+NAME = libftprintf.a
 
-CC		=	cc
-FLAGS	=	-Wall -Wextra -Werror
-RM		=	rm -rf
-LIB		=	ar rcs
+CC = cc
+FLAGS = -Wall -Wextra -Werror -MMD -MP
+RM = rm -rf
+LIB = ar rcs
 
-SRC		=	./src/parsing.c										\
-			./src/ft_printf.c									\
-			./src/utils/util.c									\
-			./src/utils/string.c								\
-			./src/utils/counters.c								\
-			./src/utils/converters.c							\
-			./src/printers/prints1.c							\
-			./src/printers/prints2.c							\
-			./src/flags_and_specifiers/print_hex.c				\
-			./src/flags_and_specifiers/print_ptr.c				\
-			./src/flags_and_specifiers/print_str.c				\
-			./src/flags_and_specifiers/print_char.c				\
-			./src/flags_and_specifiers/print_integer.c			\
-			./src/flags_and_specifiers/print_unsigned.c			\
-			./src/flags_and_specifiers/flags_and_specifiers.c
+SRC = ./src/parsing.c                                                                 \
+      ./src/ft_printf.c                                                               \
+      ./src/utils/util.c                                                              \
+      ./src/utils/string.c                                                            \
+      ./src/utils/counters.c                                                          \
+      ./src/utils/converters.c                                                        \
+      ./src/printers/prints1.c                                                        \
+      ./src/printers/prints2.c                                                        \
+      ./src/flags_and_specifiers/print_hex.c                                          \
+      ./src/flags_and_specifiers/print_ptr.c                                          \
+      ./src/flags_and_specifiers/print_str.c                                          \
+      ./src/flags_and_specifiers/print_char.c                                         \
+      ./src/flags_and_specifiers/print_integer.c                                      \
+      ./src/flags_and_specifiers/print_unsigned.c                                     \
+      ./src/flags_and_specifiers/flags_and_specifiers.c
 
-OBJ_DIR	=	obj
-OBJ		=	$(SRC:%.c=$(OBJ_DIR)/%.o)
+OBJ_DIR = obj
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
+DEP = $(OBJ:.o=.d)
 
 all: $(OBJ_DIR) $(NAME)
 
@@ -48,16 +49,19 @@ $(OBJ_DIR)/%.o: %.c
 	@$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(LIB) $(NAME) $(OBJ)
+	@$(LIB) $(NAME) $(OBJ)
 
 clean:
-	@$(RM) $(OBJ_DIR) 
+	@$(RM) $(OBJ) $(DEP)
 
 fclean: clean
-	@$(RM) $(NAME) 
+	@$(RM) $(NAME) $(OBJ_DIR)
 
 re: fclean all
 
 rebonus: fclean bonus
 
 .PHONY: all clean fclean re bonus rebonus
+
+-include $(DEP)
+
